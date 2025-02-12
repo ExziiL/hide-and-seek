@@ -5,10 +5,11 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  plugins: [react(), tailwindcss()],
+	base: "https://exziil.github.io/hide-and-seek/",
+	resolve: {
+		alias: {
+			"@": path.resolve(__dirname, "./src"),
+		},
+	},
+	plugins: [react(), tailwindcss()],
 });
