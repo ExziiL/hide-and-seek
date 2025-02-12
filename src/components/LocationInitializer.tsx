@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { useLocationActions, useLocationStore } from "../stores/location";
+import { useLocationActions } from "../stores/location";
 import { fetchGeolocation } from "../util/location-service";
 
 export const LocationInitializer = () => {
