@@ -5,10 +5,17 @@ export const fetchGeolocation = (): Promise<[number, number]> => {
 			return;
 		}
 
-		navigator.geolocation.getCurrentPosition(
-			(position) => resolve([position.coords.latitude, position.coords.longitude]),
+		// navigator.geolocation.getCurrentPosition(
+		// 	(position) =>
+		// 		resolve([position.coords.latitude, position.coords.longitude]),
+		// 	(error) => reject(error),
+		// 	{ enableHighAccuracy: true, timeout: 5000 },
+		// );
+		navigator.geolocation.watchPosition(
+			(position) =>
+				resolve([position.coords.latitude, position.coords.longitude]),
 			(error) => reject(error),
-			{ enableHighAccuracy: true, timeout: 10000 },
+			{ enableHighAccuracy: true, timeout: 5000 },
 		);
 	});
 };
