@@ -29,7 +29,7 @@ export const useGeolocation = () => {
 				setError(err.message);
 				setIsPermissionGranted(false);
 			},
-			{ enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 },
+			{ enableHighAccuracy: true, timeout: 27000 },
 		);
 
 		return () => navigator.geolocation.clearWatch(watchId);

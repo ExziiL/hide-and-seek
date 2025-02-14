@@ -18,7 +18,7 @@ function App() {
 					<div>Lat: {location[0]}</div> <div>Lng: {location[1]}</div>
 				</div>
 
-				<div>v0.2</div>
+				<div>v0.2.1</div>
 			</div>
 			<LocationInitializer />
 		</QueryClientProvider>
