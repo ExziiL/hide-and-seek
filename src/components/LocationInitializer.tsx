@@ -7,8 +7,9 @@ export const LocationInitializer = () => {
 	const { setLocation } = useLocationActions();
 
 	useEffect(() => {
+		console.log("position: ", position);
 		if (position) {
-			setLocation(position);
+			setLocation([position.latitude, position.longitude]);
 		}
 	}, [position, setLocation]);
 
