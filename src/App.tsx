@@ -17,6 +17,8 @@ function App() {
 					your current possition is:
 					<div>Lat: {location[0]}</div> <div>Lng: {location[1]}</div>
 				</div>
+
+				<div>v0.1</div>
 			</div>
 			<LocationInitializer />
 		</QueryClientProvider>
