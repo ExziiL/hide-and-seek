@@ -1,5 +1,5 @@
-import { LatLngBoundsExpression, LatLngTuple } from "leaflet";
-import React, { useState } from "react";
+import { LatLngBoundsExpression } from "leaflet";
+import { useState } from "react";
 import { Rectangle } from "react-leaflet";
 
 const GameField = () => {

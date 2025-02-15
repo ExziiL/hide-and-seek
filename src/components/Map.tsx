@@ -1,13 +1,22 @@
 import { LatLngTuple } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { Circle, MapContainer } from "react-leaflet";
+import { useState } from "react";
+import { MapContainer } from "react-leaflet";
 import { TileLayer } from "react-leaflet/TileLayer";
-import { useLocation } from "../stores/location";
 import GameField from "./GameField";
+import Player from "./Player";
+import DraggablePlayer from "./development/DraggablePlayer";
 
 function Map() {
 	const POSITION: LatLngTuple = [49.007043030126354, 12.099156534308015];
-	const location = useLocation();
+	const [playerPosition, setPlayerPosition] = useState<[number, number]>([
+		49.007043030126354, 12.099156534308015,
+	]);
+
+	const handlePlayerMove = (newPosition: [number, number]) => {
+		setPlayerPosition(newPosition);
+		// Add bounding box check logic here
+	};
 
 	return (
 		<MapContainer
@@ -20,9 +29,11 @@ function Map() {
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
 
-			<Circle
-				center={location}
-				radius={6}
+			<Player />
+
+			<DraggablePlayer
+				onPositionChange={handlePlayerMove}
+				position={playerPosition}
 			/>
 
 			<GameField />
