@@ -3,6 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { Circle, MapContainer } from "react-leaflet";
 import { TileLayer } from "react-leaflet/TileLayer";
 import { useLocation } from "../stores/location";
+import GameField from "./GameField";
 
 function Map() {
 	const POSITION: LatLngTuple = [49.007043030126354, 12.099156534308015];
@@ -23,6 +24,8 @@ function Map() {
 				center={location}
 				radius={6}
 			/>
+
+			<GameField />
 		</MapContainer>
 	);
 }

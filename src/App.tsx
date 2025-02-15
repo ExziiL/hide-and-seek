@@ -10,7 +10,7 @@ function App() {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<div className="p-4">
+			<div className=" h-screen p-4">
 				<Map />
 
 				<div>
@@ -18,7 +18,7 @@ function App() {
 					<div>Lat: {location[0]}</div> <div>Lng: {location[1]}</div>
 				</div>
 
-				<div>v0.2.1</div>
+				<div className="absolute right-4 bottom-1">v0.2.1</div>
 			</div>
 			<LocationInitializer />
 		</QueryClientProvider>
