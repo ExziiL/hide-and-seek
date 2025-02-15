@@ -1,20 +1,18 @@
 import { LatLngTuple } from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useState } from "react";
 import { MapContainer } from "react-leaflet";
 import { TileLayer } from "react-leaflet/TileLayer";
+import { useDraggableLocationActions } from "../stores/draggable-location";
 import GameField from "./GameField";
 import Player from "./Player";
 import DraggablePlayer from "./development/DraggablePlayer";
 
 function Map() {
 	const POSITION: LatLngTuple = [49.007043030126354, 12.099156534308015];
-	const [playerPosition, setPlayerPosition] = useState<[number, number]>([
-		49.007043030126354, 12.099156534308015,
-	]);
+	const { setDraggableLocation } = useDraggableLocationActions();
 
 	const handlePlayerMove = (newPosition: [number, number]) => {
-		setPlayerPosition(newPosition);
+		setDraggableLocation(newPosition);
 		// Add bounding box check logic here
 	};
 
@@ -31,10 +29,7 @@ function Map() {
 
 			<Player />
 
-			<DraggablePlayer
-				onPositionChange={handlePlayerMove}
-				position={playerPosition}
-			/>
+			<DraggablePlayer onPositionChange={handlePlayerMove} />
 
 			<GameField />
 		</MapContainer>

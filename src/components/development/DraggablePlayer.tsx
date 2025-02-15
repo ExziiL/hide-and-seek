@@ -1,22 +1,20 @@
 import L from "leaflet";
 import { useEffect, useRef } from "react";
 import { useMap } from "react-leaflet";
+import { useDraggableLocation } from "../../stores/draggable-location";
 
 interface DraggablePlayerProps {
-	position: [number, number];
 	onPositionChange?: (position: [number, number]) => void;
 }
 
-const DraggablePlayer = ({
-	position,
-	onPositionChange,
-}: DraggablePlayerProps) => {
+const DraggablePlayer = ({ onPositionChange }: DraggablePlayerProps) => {
+	const draggableLocation = useDraggableLocation();
 	const circleRef = useRef<L.Circle | null>(null);
 	const map = useMap();
 
 	useEffect(() => {
 		if (!circleRef.current) {
-			const circle = L.circle(position, {
+			const circle = L.circle(draggableLocation, {
 				radius: 6,
 				fillColor: "#3388ff",
 				fillOpacity: 0.7,
@@ -69,7 +67,7 @@ const DraggablePlayer = ({
 				circleRef.current = null;
 			}
 		};
-	}, [map, position, onPositionChange]);
+	}, [map, draggableLocation, onPositionChange]);
 
 	return null;
 };
